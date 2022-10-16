@@ -14,13 +14,15 @@ public class Cliente extends Persona {
 
     public Cliente(){
     }
-    public Cliente(int id_cliente, String nit, String correo_e, String fecha_ingreso, String nombres, String apellidos, String direccion, String telefono, String genero) {
-        super(nombres, apellidos, direccion, telefono, genero);
+
+    public Cliente(int id_cliente, String nit, String correo_e, String fecha_ingreso, String nombres, String apellidos, String direccion, String telefono, Byte genero) {
+        //super(nombres, apellidos, direccion, telefono, genero);
         this.id_cliente = id_cliente;
         this.nit = nit;
         this.correo_e = correo_e;
         this.fecha_ingreso = fecha_ingreso;
     }
+    
     
     public int getId_cliente() {
         return id_cliente;

@@ -11,9 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Productos</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
         <h1>Productos</h1>
@@ -30,48 +27,12 @@
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Marca</span>
-                <select id = "numbers" onchange = "myFunction()" name="dr_puesto" id="dr_puesto" class="form-control">
+                <select name="dr_puesto" id="dr_puesto" class="form-control">
                     <option>Opcion 1</option>
                     <option>Opcion 2</option>
-                    <option value = "3">+ Agregar</option>
+                    <option>+ Agregar</option>
                 </select>
             </div>
-            
-<script>
-function myFunction() {
-var option_value = document.getElementById("numbers").value;
-if (option_value == "3") {
-  //  alert("Hai !");
-   $("#myModal").modal();
- }
-}
-   
-
-</script>
-            
-            <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Marcas</h4>
-        </div>
-        <div class="modal-body">
-          
-            <p align="center"><iframe name="prueba" src="marca.jsp" style= "width: 300px; height: 500px; border: none;"></iframe></p>
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-            
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Descripcion</span>

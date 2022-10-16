@@ -14,11 +14,12 @@ import java.sql.SQLException;
  */
 public class Conexion {
     public Connection conexionBD;
-    public final String bd="bd_final";
-    public final String urlConexion=String.format("jdbc:mysql://localhost:3306/%s",bd);
-    public final String usuario = "usr_proyecto";
-    public final String contra="proyecto@.";
-    public final String jdbc="com.mysql.cj.jdbc.Driver";
+    private final String puerto= "3306";
+    private final String bd= "bd_final";
+    private final String urlConexion = String.format("jdbc:mysql://localhost:%s/%s?serverTimezone=UTC",puerto, bd);
+    private final String usuario = "root";
+    private final String contra = "12345";
+    private final String jdbc ="com.mysql.cj.jdbc.Driver";
     
     
     public void abrir_con(){

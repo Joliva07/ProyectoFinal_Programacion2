@@ -9,11 +9,13 @@ package clases;
  * @author Josue
  */
 abstract class Persona {
-    private String nombres, apellidos, direccion, telefono, genero;
-
+    private String nombres, apellidos, direccion, telefono;
+    private byte genero;
+    
     public Persona(){
     }
-    public Persona(String nombres, String apellidos, String direccion, String telefono, String genero) {
+
+    public Persona(String nombres, String apellidos, String direccion, String telefono, byte genero) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.direccion = direccion;
@@ -21,8 +23,7 @@ abstract class Persona {
         this.genero = genero;
     }
 
-    
-    
+
     public String getNombres() {
         return nombres;
     }
@@ -55,12 +56,18 @@ abstract class Persona {
         this.telefono = telefono;
     }
 
-    public String getGenero() {
+    public byte getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(byte genero) {
         this.genero = genero;
     }
+
+    
+    
+    public int crear(){return 0;}
+    public int modificar(){return 0;}
+    public int eliminar(){return 0;}
     
 }
