@@ -5,14 +5,16 @@
             <url>src/java/clases/Cliente.java</url>
             <bookmark id="1">
                 <name/>
-                <line>24</line>
+                <line>34</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/yoc91/Pictures/ProyectoFinal_Programacion2/web/empleado.jsp</file>
+            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/proveedor.jsp</file>
+            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/empleado.jsp</file>
+            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/cliente.jsp</file>
         </group>
     </open-files>
 </project-private>

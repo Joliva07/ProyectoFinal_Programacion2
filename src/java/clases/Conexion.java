@@ -18,7 +18,7 @@ public class Conexion {
     private final String bd= "bd_final";
     private final String urlConexion = String.format("jdbc:mysql://localhost:%s/%s?serverTimezone=UTC",puerto, bd);
     private final String usuario = "root";
-    private final String contra = "12345";
+    private final String contra = "mapfre";
     private final String jdbc ="com.mysql.cj.jdbc.Driver";
     
     

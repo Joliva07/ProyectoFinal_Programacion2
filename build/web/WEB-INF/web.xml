@@ -8,6 +8,14 @@
         <servlet-name>sr_empleado</servlet-name>
         <servlet-class>controlador.sr_empleado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sr_cliente1</servlet-name>
+        <servlet-class>controlador.sr_cliente1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sr_proveedores1</servlet-name>
+        <servlet-class>controlador.sr_proveedores1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sr_puesto</servlet-name>
         <url-pattern>/sr_puesto</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>sr_empleado</servlet-name>
         <url-pattern>/sr_empleado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sr_cliente1</servlet-name>
+        <url-pattern>/sr_cliente1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sr_proveedores1</servlet-name>
+        <url-pattern>/sr_proveedores1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

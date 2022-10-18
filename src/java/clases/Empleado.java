@@ -17,7 +17,6 @@ public class Empleado extends Persona{
     private String dpi,fecha_nacimiento,fecha_inicio_labores,fecha_ingreso;
     private int id_puesto,id_empleado;
 
-    
     Conexion cn;
     public Empleado(){
     }
@@ -32,7 +31,8 @@ public class Empleado extends Persona{
         this.id_empleado = id_empleado;
     }
 
-
+    
+    
     public String getDpi() {
         return dpi;
     }
@@ -85,8 +85,6 @@ public class Empleado extends Persona{
     public DefaultTableModel leer(){
   DefaultTableModel tabla = new DefaultTableModel();
   try{
-   //SELECT e.idempleado as id,e.nombres,e.apellidos,e.direccion,e.telefono,e.dpi,e.genero,e.fecha_nacimiento,p.puesto,e.idpuesto,e.fecha_inicio_labores,e.fechaingreso FROM empleados as e inner join puestos as p on e.idPuesto = p.idPuesto;
-   //select e.idempleado,e.nombres,e.apellidos,e.direccion,e.telefono,e.dpi, CASE when e.genero = 1 then 'masculino' when e.genero = 0 then 'femenino' end as genero,e.fecha_nacimiento, p.puesto, e.fecha_inicio_labores, e.fechaingreso from empleados as e inner join puestos as p on e.idpuesto=p.idPuesto;   
    cn = new Conexion();
    cn.abrir_con();
     String query;
@@ -135,7 +133,7 @@ public class Empleado extends Persona{
          cn = new Conexion();
          
          String query;
-            query = "INSERT INTO empleados(nombres,apellidos,direccion,telefono,dpi,genero,fecha_nacimiento,idPuesto,fecha_inicio_labores,fechaingreso)  VALUES (?,?,?,?,?,?,?,?,?,?);";
+            query = "INSERT INTO empleados(nombres,apellidos,direccion,telefono,dpi,genero,fecha_nacimiento,idPuesto,fecha_inicio_labores,fechaingreso)  VALUES(?,?,?,?,?,?,?,?,?,?);";
          cn.abrir_con();
             parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
          parametro.setString(1, getNombres());

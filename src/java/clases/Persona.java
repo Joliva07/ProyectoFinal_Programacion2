@@ -23,6 +23,8 @@ abstract class Persona {
         this.genero = genero;
     }
 
+ 
+
 
     public String getNombres() {
         return nombres;
@@ -40,13 +42,14 @@ abstract class Persona {
         this.apellidos = apellidos;
     }
 
-    public String getDireccion() {
+     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
 
     public String getTelefono() {
         return telefono;

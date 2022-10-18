@@ -56,7 +56,7 @@ public class Puesto {
             }
         
         cn.cerrar_con();
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         

@@ -19,6 +19,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="puesto.jsp"/>
     </head>
+    
     <body>
         <div class="container mt-3">
         <h1>Empleados</h1>
@@ -103,12 +104,12 @@
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Genero</span>
-                <select name="txt_genero" id="txt_genero" class="form-control">
+                  <select name="txt_genero" id="txt_genero" class="form-control">
                     <option disabled selected>Selecciona genero</option>
                     <option value="1">Hombre</option> 
                     <option value="0">Mujer</option>
                     </select>
-                    </div>
+            </div>
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Fecha de Nacimiento</span>
@@ -174,24 +175,19 @@
                 <% Empleado empleado = new Empleado();
                     DefaultTableModel tabla = new DefaultTableModel();
                     tabla = empleado.leer();
-                    String gen;
                     for (int t= 0; t<tabla.getRowCount(); t++) {
-                           
                             out.println("<tr data-id="+ tabla.getValueAt(t, 0)+" data-id_p=" + tabla.getValueAt(t, 11)+">");
                             out.println("<td>"+ tabla.getValueAt (t,1) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,2) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,3) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,5) + "</td>");
-                            //out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
-                            //if(gen = tabla.getValueAt(t,6) == 1 ? 'hombre' : 'mujer'){
-                            out.println("<td>"+ tabla.getValueAt (t,6)   + "</td>");                            
+                            out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,7) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,8) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,10) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,11) + "</td>");
                             out.println("</tr>");
-                            
                         }
                   %>
                   
