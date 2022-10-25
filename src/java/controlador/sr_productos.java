@@ -4,18 +4,20 @@
  */
 package controlador;
 
+import clases.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import clases.Empleado;
+
 /**
  *
- * @author yoc91
+ * @author javie
  */
-public class sr_empleado extends HttpServlet {
+
+public class sr_productos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,58 +28,58 @@ public class sr_empleado extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    Empleado empleado;
-    
+    Producto producto;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet sr_empleado</title>");            
+            out.println("<title>Servlet sr_productos</title>");            
             out.println("</head>");
             out.println("<body>");
-            
-            empleado = new Empleado(request.getParameter("txt_dpi"),request.getParameter("txt_Fn"),request.getParameter("txt_Fechain"),request.getParameter("txt_Fechai"),Integer.valueOf(request.getParameter("dr_puesto")),Integer.valueOf(request.getParameter("txt_idempleado")),request.getParameter("txt_Nombre"),request.getParameter("txt_apellidos"),request.getParameter("txt_Direccion"),request.getParameter("txt_Telefono"),Byte.valueOf(request.getParameter("txt_genero")));
+            producto = new Producto(request.getParameter("txt_producto"),request.getParameter("txt_descripcion"),request.getParameter("txt_imagen"),request.getParameter("txt_Fningreso"),Integer.valueOf(request.getParameter("dr_marca")),Integer.valueOf(request.getParameter("txt_id")),Integer.valueOf(request.getParameter("txt_existencia")),Float.valueOf(request.getParameter("txt_PrecioCosto")),Float.valueOf(request.getParameter("txt_PrecioVenta")));
             
             //Agregar
-            if("agregar".equals(request.getParameter("btn_agregar"))){
-            if(empleado.crear()>0){
+            
+             if("agregar".equals(request.getParameter("btn_agregar"))){
+            if(producto.crear()>0){
            out.println("<h1> Ingreso Exitoso...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+           out.println("<a href='producto.jsp'>Regresar...</a>");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
-                out.println("<a href='empleado.jsp'>Regresar...</a>");
+                out.println("<a href='producto.jsp'>Regresar...</a>");
             }
                 }
-            
-            //Modificar
+         
+              //Modificar
             if("modificar".equals(request.getParameter("btn_modificar"))){
-            if(empleado.modificar()>0){
+            if(producto.modificar()>0){
            out.println("<h1> Cambio Exitoso...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+           out.println("<a href='producto.jsp'>Regresar...</a>");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
-                out.println("<a href='empleado.jsp'>Regresar...</a>");
+                out.println("<a href='producto.jsp'>Regresar...</a>");
             }
                 }
-            
             //Eliminar
             if("eliminar".equals(request.getParameter("btn_eliminar"))){
-            if(empleado.eliminar()>0){
+            if(producto.eliminar()>0){
            out.println("<h1> Datos eliminados...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+           out.println("<a href='producto.jsp'>Regresar...</a>");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
-                out.println("<a href='empleado.jsp'>Regresar...</a>");
+                out.println("<a href='producto.jsp'>Regresar...</a>");
             }
-                }
+                } 
+            
             
             out.println("</body>");
             out.println("</html>");
         }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

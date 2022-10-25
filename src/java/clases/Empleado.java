@@ -173,7 +173,7 @@ public class Empleado extends Persona{
          parametro.setString(3, getDireccion());
          parametro.setString(4, getTelefono());
          parametro.setString(5, getDpi());
-         //parametro.setString(6, getGenero());
+         parametro.setByte(6, getGenero());
          parametro.setString(7, getFecha_nacimiento());
          parametro.setInt(8, this.getId_puesto());
          parametro.setString(9, getFecha_inicio_labores());

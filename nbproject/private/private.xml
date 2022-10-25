@@ -12,9 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/proveedor.jsp</file>
-            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/empleado.jsp</file>
-            <file>file:/C:/Users/Oseas%20Xt/Documents/NetBeansProjects/ProyectoFinal_Programacion2-master/web/cliente.jsp</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/controlador/sr_productos.java</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/controlador/sr_empleado.java</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/web/empleado.jsp</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/clases/Conexion.java</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/web/producto.jsp</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/clases/Producto.java</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/controlador/sr_marca.java</file>
+            <file>file:/C:/Users/javie/OneDrive/Escritorio/PROYECTO%20FINAL%20PROGRAMACION%20II/ProyectoFinal_Programacion2/src/java/clases/Empleado.java</file>
         </group>
     </open-files>
 </project-private>
