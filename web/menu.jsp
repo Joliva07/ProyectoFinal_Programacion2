@@ -109,7 +109,7 @@ h1 {
 <li><a href="proveedor.jsp" target="prueba" onclick="ocultar()">Proveedores</a></li>
 <li><a href="marca.jsp" target="prueba" onclick="ocultar()">Marcas</a></li>
 <li><a href="producto.jsp" target="prueba" onclick="ocultar()">Productos</a></li>
-<li><a href="#">Ventas</a></li>
+<li><a href="ventas.jsp" target="prueba" onclick="ocultar()">Ventas</a></li>
 <li><a href="#">Compras</a></li>
 <li><a href="index.jsp">Salir</a></li>
 </ul>
