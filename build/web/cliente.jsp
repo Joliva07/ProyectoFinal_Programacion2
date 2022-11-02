@@ -7,8 +7,8 @@
 <%@page import="javax.swing.table.DefaultTableModel"%>
 <%@page import="java.util.Map.Entry"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="clases.Puesto" %>
-<%@page import="clases.Cliente" %>
+<%@page import="modelo.Puesto" %>
+<%@page import="modelo.Cliente" %>
 <%@page import="java.util.HashMap" %>
 
 

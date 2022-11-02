@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package clases;
+package modelo;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -88,10 +88,10 @@ public class Empleado extends Persona{
    cn = new Conexion();
    cn.abrir_con();
     String query;
-        query = "SELECT e.idempleado as id,e.nombres,e.apellidos,e.direccion,e.telefono,e.dpi,e.genero,e.fecha_nacimiento,p.puesto,e.idpuesto,e.fecha_inicio_labores,e.fechaingreso FROM empleados as e inner join puestos as p on e.idPuesto = p.idPuesto;";
+        query = "select e.idempleado as id,e.nombres,e.apellidos,e.direccion,e.telefono,e.dpi, CASE when e.genero = 1 then 'masculino' when e.genero = 0 then 'femenino' end as gen,e.fecha_nacimiento, p.puesto,p.idpuesto, e.fecha_inicio_labores, e.fechaingreso from empleados as e inner join puestos as p on e.idpuesto=p.idPuesto;";
      ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
       
-      String encabezado[] = {"id","nombres","apellidos","direccion","telefono","dpi","genero","fecha_nacimiento","puesto","idpuesto","fecha_inicio_labores","fechaingreso"};
+      String encabezado[] = {"id","nombres","apellidos","direccion","telefono","dpi","gen","fecha_nacimiento","puesto","idpuesto","fecha_inicio_labores","fechaingreso"};
       tabla.setColumnIdentifiers(encabezado);
       
       String datos[]=new String[12];
@@ -103,7 +103,7 @@ public class Empleado extends Persona{
       datos[3] = consulta.getString("direccion");
       datos[4] = consulta.getString("telefono");
       datos[5] = consulta.getString("dpi");
-      datos[6] = consulta.getString("genero");
+      datos[6] = consulta.getString("gen");
       datos[7] = consulta.getString("fecha_nacimiento");
       datos[8] = consulta.getString("puesto");
       datos[9] = consulta.getString("idpuesto");

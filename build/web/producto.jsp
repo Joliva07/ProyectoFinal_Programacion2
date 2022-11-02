@@ -7,9 +7,9 @@
 
 <%@page import="java.util.Map.Entry"%>
 <%@page import="java.util.HashMap" %>
-<%@page import="clases.Marca" %>
+<%@page import="modelo.Marca" %>
 <%@page import="javax.swing.table.DefaultTableModel"%>
-<%@page import="clases.Producto" %>
+<%@page import="modelo.Producto" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>

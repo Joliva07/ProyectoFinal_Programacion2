@@ -7,7 +7,7 @@
 <%@page import="java.util.Map.Entry"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.HashMap" %>
-<%@page import="clases.Puesto" %>
+<%@page import="modelo.Puesto" %>
 <!DOCTYPE html>
 <html>
     <head>

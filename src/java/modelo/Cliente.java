@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package clases;
+package modelo;
 
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
@@ -31,9 +31,6 @@ public class Cliente extends Persona {
         this.fecha_ingreso = fecha_ingreso;
     }
 
- 
-
-    
     public int getId_cliente() {
         return id_cliente;
     }
@@ -73,10 +70,10 @@ public class Cliente extends Persona {
    cn.abrir_con();
     String query;
     
-        query = "SELECT idcliente,nombres,apellidos,nit,genero,telefono,correo_electronico,fechaingreso FROM clientes;";
+        query = "SELECT idcliente,nombres,apellidos,nit,CASE when genero = 1 then 'masculino' when genero = 0 then 'femenino' end as gen,telefono,correo_electronico,fechaingreso FROM clientes;";
      ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
       
-      String encabezado[] = {"idcliente","nombres","apellidos","nit","genero","telefono","correo_electronico","fechaingreso"};
+      String encabezado[] = {"idcliente","nombres","apellidos","nit","gen","telefono","correo_electronico","fechaingreso"};
       tabla.setColumnIdentifiers(encabezado);
       
       String datos[]=new String[8];
@@ -86,7 +83,7 @@ public class Cliente extends Persona {
       datos[1] = consulta.getString("nombres");
       datos[2] = consulta.getString("apellidos");
       datos[3] = consulta.getString("nit");
-      datos[4] = consulta.getString("genero");
+      datos[4] = consulta.getString("gen");
       datos[5] = consulta.getString("telefono");
       datos[6] = consulta.getString("correo_electronico");
       datos[7] = consulta.getString("fechaingreso");
