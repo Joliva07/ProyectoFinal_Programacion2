@@ -141,7 +141,7 @@
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Fecha de ingreso</span>
-                <input type="datetime-local" name="txt_Fningreso" id="txt_Fningreso" class="form-control" placeholder="dd/mm/yyyy" aria-label="Puesto" aria-describedby="addon-wrapping" required>
+                <input type="text" name="txt_Fningreso" id="txt_Fningreso" value="YYYY/MM/DDHH:MM" class="form-control" placeholder="dd/mm/yyyy" aria-label="Puesto" aria-describedby="addon-wrapping" disabled>
             </div>
             <br>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">

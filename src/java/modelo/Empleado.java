@@ -7,6 +7,8 @@ import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -129,6 +131,7 @@ public class Empleado extends Persona{
     int retorno=0;
         
         try{
+            String fecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
          PreparedStatement parametro;
          cn = new Conexion();
          
@@ -145,7 +148,7 @@ public class Empleado extends Persona{
          parametro.setString(7, getFecha_nacimiento());
          parametro.setInt(8, this.getId_puesto());
          parametro.setString(9, getFecha_inicio_labores());
-         parametro.setString(10, getFecha_ingreso());
+         parametro.setString(10, fecha);
          int executar= parametro.executeUpdate();
          retorno = executar;
          cn.cerrar_con();

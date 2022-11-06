@@ -8,6 +8,8 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -253,6 +255,7 @@ public class Ventas {
         cn = new Conexion();
         cn.abrir_con();
         try{
+            String fecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             PreparedStatement parametro;
             String query="INSERT INTO ventas(nofactura,serie,fechafactura,idcliente,idempleado,fechaingreso)VALUES(?,?,?,?,?,?);";
             parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
@@ -262,7 +265,7 @@ public class Ventas {
             parametro.setString(3, getFechafactura());
             parametro.setString(4, getIdcliente());
             parametro.setString(5, getIdempleado());
-            parametro.setString(6, getFechaingreso());
+            parametro.setString(6, fecha);
             
             int ejecutar= parametro.executeUpdate();
             retorno = ejecutar;
@@ -272,6 +275,7 @@ public class Ventas {
         cn.cerrar_con();
         return retorno;
     }
+    
     public int guardarDetalleV(){
         int retorno=0;
         cn = new Conexion();

@@ -45,8 +45,7 @@ public class sr_empleado extends HttpServlet {
             //Agregar
             if("agregar".equals(request.getParameter("btn_agregar"))){
             if(empleado.crear()>0){
-           out.println("<h1> Ingreso Exitoso...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+                response.sendRedirect("empleado.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='empleado.jsp'>Regresar...</a>");
@@ -56,8 +55,7 @@ public class sr_empleado extends HttpServlet {
             //Modificar
             if("modificar".equals(request.getParameter("btn_modificar"))){
             if(empleado.modificar()>0){
-           out.println("<h1> Cambio Exitoso...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+           response.sendRedirect("empleado.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='empleado.jsp'>Regresar...</a>");
@@ -67,8 +65,7 @@ public class sr_empleado extends HttpServlet {
             //Eliminar
             if("eliminar".equals(request.getParameter("btn_eliminar"))){
             if(empleado.eliminar()>0){
-           out.println("<h1> Datos eliminados...</h1>");
-           out.println("<a href='empleado.jsp'>Regresar...</a>");
+           response.sendRedirect("empleado.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='empleado.jsp'>Regresar...</a>");

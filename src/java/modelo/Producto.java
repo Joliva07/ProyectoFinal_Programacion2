@@ -8,6 +8,8 @@ import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -157,6 +159,7 @@ public class Producto {
          int retorno=0;
         
         try{
+            String fecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
          PreparedStatement parametro;
          cn = new Conexion();
          
@@ -173,7 +176,7 @@ public class Producto {
          parametro.setFloat(5, getPrecio_costo());
          parametro.setFloat(6, getPrecio_venta());
          parametro.setInt(7, getExistencia());
-         parametro.setString(8, getFecha_ingreso());
+         parametro.setString(8, fecha);
          
          int executar= parametro.executeUpdate();
          retorno = executar;

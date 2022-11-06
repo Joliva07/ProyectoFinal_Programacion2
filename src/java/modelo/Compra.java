@@ -7,6 +7,8 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -264,6 +266,7 @@ public class Compra {
         cn = new Conexion();
         cn.abrir_con();
         try{
+            String fecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             PreparedStatement parametro;
             String query="insert into compras(no_orden_compra, idproveedor,fecha_orden,fechaingreso) values(?,?,?,?);";
             parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
@@ -271,7 +274,7 @@ public class Compra {
             parametro.setInt(1, this.getNoCompra());
             parametro.setString(2, this.getIdProveedor());
             parametro.setString(3, this.getFechaOrden());
-            parametro.setString(4, this.getFechaIngreso());
+            parametro.setString(4, fecha);
             
             int ejecutar= parametro.executeUpdate();
             retorno = ejecutar;
@@ -281,6 +284,7 @@ public class Compra {
         cn.cerrar_con();
         return retorno;
     }
+    
     public int guardarDetalleC(){
         int retorno=0;
         cn = new Conexion();
@@ -302,8 +306,7 @@ public class Compra {
         }
         cn.cerrar_con();
         return retorno;
-    }
-    
+    }  
     public DefaultTableModel leerCompra(){
         DefaultTableModel tabla = new DefaultTableModel();
         try{

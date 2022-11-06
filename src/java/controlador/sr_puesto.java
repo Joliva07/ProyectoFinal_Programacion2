@@ -43,12 +43,7 @@ public class sr_puesto extends HttpServlet {
             //Agregar
             if("agregar".equals(request.getParameter("btn_agregar"))){
             if(puesto.crear()>0){
-           out.println("<h1> Ingreso Exitoso...</h1>");
-           
-           out.println("<a href='puesto.jsp'>Ir a Puestos...</a>");
-           out.println("<br>");
-           out.println("<a href='empleado.jsp'>Ir a Empleados</a>");
-           out.println("<h1> Eliga a que Formulario desea ir.</h1>");
+           response.sendRedirect("puesto.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='puesto.jsp'>Regresar...</a>");
@@ -58,8 +53,7 @@ public class sr_puesto extends HttpServlet {
             //Modificar
             if("modificar".equals(request.getParameter("btn_modificar"))){
             if(puesto.modificar()>0){
-           out.println("<h1> Cambio Exitoso...</h1>");
-           out.println("<a href='puesto.jsp'>Regresar...</a>");
+           response.sendRedirect("puesto.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='index.jsp'>Regresar...</a>");
@@ -69,8 +63,7 @@ public class sr_puesto extends HttpServlet {
             //Eliminar
             if("eliminar".equals(request.getParameter("btn_eliminar"))){
             if(puesto.eliminar()>0){
-           out.println("<h1> Datos eliminados...</h1>");
-           out.println("<a href='puesto.jsp'>Regresar...</a>");
+           response.sendRedirect("puesto.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='index.jsp'>Regresar...</a>");

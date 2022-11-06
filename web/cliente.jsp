@@ -105,7 +105,7 @@
             
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Fecha de Ingreso</span>
-                <input type="datetime-local" name="txt_fechai" id="txt_fechai" class="form-control" placeholder="2000-01-01" aria-label="Puesto" aria-describedby="addon-wrapping" required>
+                <input type="text" name="txt_fechai" id="txt_fechai" class="form-control" value="YYYY/MM/DDHH:MM" placeholder="2000-01-01" aria-label="Puesto" aria-describedby="addon-wrapping" disabled>
             </div>
             <br>
             

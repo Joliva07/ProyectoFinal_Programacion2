@@ -47,8 +47,7 @@ public class sr_marca extends HttpServlet {
             
              if("agregar".equals(request.getParameter("btn_agregar"))){
             if(marca.crear()>0){
-           out.println("<h1> Ingreso Exitoso...</h1>");
-           out.println("<a href='marca.jsp'>Regresar...</a>");
+           response.sendRedirect("marca.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='marca.jsp'>Regresar...</a>");
@@ -59,8 +58,7 @@ public class sr_marca extends HttpServlet {
             //Modificar
             if("modificar".equals(request.getParameter("btn_modificar"))){
             if(marca.modificar()>0){
-           out.println("<h1> Cambio Exitoso...</h1>");
-           out.println("<a href='marca.jsp'>Regresar...</a>");
+           response.sendRedirect("marca.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='index.jsp'>Regresar...</a>");
@@ -70,8 +68,7 @@ public class sr_marca extends HttpServlet {
             //Eliminar
             if("eliminar".equals(request.getParameter("btn_eliminar"))){
             if(marca.eliminar()>0){
-           out.println("<h1> Datos eliminados...</h1>");
-           out.println("<a href='marca.jsp'>Regresar...</a>");
+           response.sendRedirect("marca.jsp");
             }else{
                 out.println("<h1> XXXXX Error XXXXX</h1>");
                 out.println("<a href='index.jsp'>Regresar...</a>");

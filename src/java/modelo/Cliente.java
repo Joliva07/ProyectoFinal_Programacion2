@@ -8,6 +8,8 @@ import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -108,6 +110,7 @@ public class Cliente extends Persona {
     int retorno=0;
         
         try{
+            String fecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
          PreparedStatement parametro;
          cn = new Conexion();
          
@@ -122,7 +125,7 @@ public class Cliente extends Persona {
          parametro.setByte  (4, getGenero());
          parametro.setString(5, getTelefono());
          parametro.setString(6, getCorreo_e());
-         parametro.setString(7, getFecha_ingreso());
+         parametro.setString(7, fecha);
          
          int executar= parametro.executeUpdate();
          retorno = executar;
