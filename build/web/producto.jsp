@@ -11,6 +11,7 @@
 <%@page import="javax.swing.table.DefaultTableModel"%>
 <%@page import="modelo.Producto" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,23 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
+        
+        <% 
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String nivel;
+            
+            if(sesion.getAttribute("user")!=null && sesion.getAttribute("user")!=null ){
+                usuario = sesion.getAttribute("user").toString();
+                nivel = sesion.getAttribute("nivel").toString();
+                //out.print( "<a href='index.jsp?cerrar=true'>"+ usuario +"<h5>Cerrar Sesion</h5></a>  " );
+                
+            }else{
+                out.print(" <script>location.replace('index.jsp'); </script>   ");
+            }
+            
+        %>
+        
         <div class="modal fade" id="modal_marca">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -101,7 +119,7 @@
             <br>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Imagen</span>
-                <input type="text" name="txt_imagen" id="txt_imagen" class="form-control" placeholder="Url" aria-label="Puesto" aria-describedby="addon-wrapping" required>
+                <input type="file" name="fileImagen" id="fileImagen" class="form-control" placeholder="Url" aria-label="Puesto" aria-describedby="addon-wrapping" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
@@ -127,7 +145,7 @@
             </div>
             <br>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button name="btn_agregar" value="agregar" class="btn btn-success" id="btn_agregar">Agregar</button>
+                <button name="btn_agregar" value="agregar" class="btn btn-success" id="btn_agregar">Agregar</button>
                 <button name="btn_modificar" id="btn_modificar" value="modificar" class="btn btn-primary" > Modificar</button>
                 <button name="btn_eliminar" id="btn_eliminar" value="eliminar" class="btn btn-danger" onclick="javascript:if(!confirm('¿Desea Eliminar?, consulte de nuevo')) return false" > Eliminar </button>
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>

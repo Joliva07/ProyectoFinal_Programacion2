@@ -16,8 +16,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Producto {
     private String producto,descripcion,imagen,fecha_ingreso;
-    private int id_marca,id_producto,existencia;
+    private int id_marca,id_producto,existencia,cantidad=1;
     private float precio_costo,precio_venta;
+    
 
     Conexion cn;
     public Producto() {
@@ -106,7 +107,13 @@ public class Producto {
     public void setPrecio_venta(float precio_venta) {
         this.precio_venta = precio_venta;
     }
+    public int getCantidad() {
+        return cantidad;
+    }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     public DefaultTableModel leer(){
   DefaultTableModel tabla = new DefaultTableModel();
   try{
@@ -233,8 +240,28 @@ public class Producto {
         
         return retorno;
     }
+
+    
    
 
+/*ArrayList<string> lista = new ArrayList<>();
+ try {
+     FileItemFactory file = new DiskFileItemFactory();
+     ServletFileUpload fileUpload =new ServletFileUpload(file);
+     List items = fileUpload.parseRequest (request);
+     for (int i = = 0; i < items.size (); : i++) {
+         FileItem fileItem = (FileItem) items.get (i);
+         if (!fileItem. isFormField()) {
+             File f new File + fileItem. getName ());
+             fileItem. String ruta f);
+            p.setRuta ("http://localhost/img/"+fileItem.getName ());
+         } else {
+             lista.add (fileItem.getString());
+         }
+ }
+}
+    p.setNombre (lista.get (0) );
+    pdao.agregar (p);*/
 
     
     

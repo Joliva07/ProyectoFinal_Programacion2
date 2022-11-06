@@ -22,12 +22,13 @@ public class Ventas {
     private String idempleado; 
     private String fechaingreso;
     private String idproducto;
-    private String serie="A";
+    private String serie;
     private int cantidad = 0;
     private int noFacrura=0;
     private float precioUnitario=0;
     private float total=0;
     private String producto;
+    private int codigo;
 
     Conexion cn;
 
@@ -52,186 +53,88 @@ public class Ventas {
     public String getIdventa() {
         return idventa;
     }
-
     public void setIdventa(String idventa) {
         this.idventa = idventa;
     }
-
     public String getIdcliente() {
         return idcliente;
     }
-
     public void setIdcliente(String idcliente) {
         this.idcliente = idcliente;
     }
-
     public String getIdVenta_detalle() {
         return idVenta_detalle;
     }
-
     public void setIdVenta_detalle(String idVenta_detalle) {
         this.idVenta_detalle = idVenta_detalle;
     }
-
     public String getFechafactura() {
         return fechafactura;
     }
-
     public void setFechafactura(String fechafactura) {
         this.fechafactura = fechafactura;
     }
-
     public String getIdempleado() {
         return idempleado;
     }
-
     public void setIdempleado(String idempleado) {
         this.idempleado = idempleado;
     }
-
     public String getFechaingreso() {
         return fechaingreso;
     }
-
     public void setFechaingreso(String fechaingreso) {
         this.fechaingreso = fechaingreso;
     }
-
     public String getIdproducto() {
         return idproducto;
     }
-
     public void setIdproducto(String idproducto) {
         this.idproducto = idproducto;
     }
-
     public String getSerie() {
         return serie;
     }
-
     public void setSerie(String serie) {
         this.serie = serie;
     }
-
     public int getCantidad() {
         return cantidad;
     }
-
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
     public int getNoFacrura() {
         return noFacrura;
     }
-
     public void setNoFacrura(int noFacrura) {
         this.noFacrura = noFacrura;
     }
-
     public float getPrecioUnitario() {
         return precioUnitario;
     }
-
     public void setPrecioUnitario(float precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
-
     public float getTotal() {
         return total;
     }
-
     public void setTotal(float total) {
         this.total = total;
     }   
-    
     public String getProducto() {
         return producto;
     }
-
     public void setProducto(String producto) {
         this.producto = producto;
     }
-   /* public String idCl(String nit){
-       // DefaultTableModel tabla = new DefaultTableModel();
-       // String idClt="Hola mundo lkjsdf;laks";
-       String idClt;
-        try{   
-            PreparedStatement parametro;
-        cn = new Conexion();
-        cn.abrir_con();
-        String query;
-        query = "select idcliente from clientes where nit='?';";
-         parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
-         ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-         parametro.setString(1, nit);
-        String encabezado[] = {"idcliente"};
-        tabla.setColumnIdentifiers(encabezado);
-         String datos[]=new String[1];
-            if(tabla.getRowCount()==0){
-                idClt="No existe el cliente";
-                
-            }else{
-                idClt=datos[0];
-            }
-           // idClt=datos[0];
-        cn = new Conexion();
-        cn.abrir_con();
-       /* PreparedStatement parametro;
-        String query;
-        query = "select idcliente from clientes where nit='?';";
-        parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
-        parametro.setString(1, nit);
-        ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-        while(consulta.next()){
-        texto=consulta.getString("idcliente");   
-        }
-        idClt=texto;
-       /*PreparedStatement parametro;
-       String query;
-       query = "select idcliente from clientes where nit='" + nit + "';";
-       /*String query;
-       query = "select idcliente from clientes where nit='?';";
-       PreparedStatement parametro = cn.conexionBD.prepareStatement(query);
-       parametro.setString(1, nit);
-       ResultSet consulta;
-       consulta = parametro.executeQuery();
-      // String datos[]=new String[1];
-       while(consulta.next()){
-            System.out.println(consulta.getString("idcliente"));
-           String texto=consulta.getString("idcliente");
-           idClt=texto;
-        }
-        //idClt=datos[0];
-       //idClt=consulta;
-        cn.cerrar_con();  
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }
-        return idClt;
-    }*/
-     /*public DefaultTableModel NomCl(String nit){
-         DefaultTableModel tabla = new DefaultTableModel();
-         try{
-            cn = new Conexion();
-            cn.abrir_con();
-            String query;
-            query = "select idcliente from clientes where nit='"+nit+"';";
-            ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-            String encabezado[] = {"idcliente"};
-            tabla.setColumnIdentifiers(encabezado);
-            String datos[]=new String[1];
-            while(consulta.next()){
-            datos[0] = consulta.getString("idcliente");
-            tabla.addRow(datos);
-            }
-            cn.cerrar_con(); 
-         }catch(SQLException ex){
-            cn.cerrar_con();
-            System.out.println("Error: " + ex.getMessage() );
-         }
-         return tabla;
-     }*/
+    public int getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+   
     public Cliente buscar(String nit){
         Cliente c = new Cliente();
         cn = new Conexion();
@@ -258,7 +161,6 @@ public class Ventas {
         cn.cerrar_con();
         return c;
     }
-    
     public Producto buscarP(String id){
         Producto p = new Producto();
         cn = new Conexion();
@@ -286,8 +188,218 @@ public class Ventas {
         cn.cerrar_con();
         return p;
     }
-
+    public int ActExis(String id, int cant){
+        int retorno=0;
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            PreparedStatement parametro;
+            String query="UPDATE productos SET existencia =?  WHERE idproductos = ?;";
+            parametro=cn.conexionBD.prepareStatement(query);
+            
+            parametro.setInt(1,cant);
+            parametro.setString(2, id);
+            
+            int ejecutar= parametro.executeUpdate();
+            retorno = ejecutar;
+        }catch(SQLException ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
+        
+        cn.cerrar_con();
+        return retorno;
+    } 
     
+    public String Nofactura(){
+        String NoFa="";
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            ResultSet consulta;
+            PreparedStatement parametro;
+            String query="SELECT max(nofactura) FROM ventas;";
+            parametro=cn.conexionBD.prepareStatement(query);
+            consulta=parametro.executeQuery();
+            while(consulta.next()){
+              NoFa=consulta.getString(1);
+            }
+        }catch(SQLException ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
+        cn.cerrar_con();
+        return NoFa;
+    }
+    public String IdVenta(){
+        String idV="";
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            ResultSet consulta;
+            PreparedStatement parametro;
+            String query="SELECT max(idventa) FROM ventas;";
+            parametro=cn.conexionBD.prepareStatement(query);
+            consulta=parametro.executeQuery();
+            while(consulta.next()){
+                idV=consulta.getString(1);
+            }
+        }catch(SQLException ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
+        cn.cerrar_con();
+        return idV;
+    }
+    public int guardarVenta(){
+        int retorno=0;
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            PreparedStatement parametro;
+            String query="INSERT INTO ventas(nofactura,serie,fechafactura,idcliente,idempleado,fechaingreso)VALUES(?,?,?,?,?,?);";
+            parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
+            
+            parametro.setInt(1, getNoFacrura());
+            parametro.setString(2, getSerie());
+            parametro.setString(3, getFechafactura());
+            parametro.setString(4, getIdcliente());
+            parametro.setString(5, getIdempleado());
+            parametro.setString(6, getFechaingreso());
+            
+            int ejecutar= parametro.executeUpdate();
+            retorno = ejecutar;
+        }catch(SQLException ex){
+            System.out.println("Error Venta: " + ex.getMessage());
+        }
+        cn.cerrar_con();
+        return retorno;
+    }
+    public int guardarDetalleV(){
+        int retorno=0;
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            PreparedStatement parametro;
+            String query="INSERT INTO ventas_detalle(idventa,idproducto,cantidad,precio_unitario)VALUES(?,?,?,?);";
+            parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
+            
+            parametro.setString(1, this.getIdventa());
+            parametro.setString(2, this.getIdproducto());
+            parametro.setInt(3, this.getCantidad());
+            parametro.setFloat(4, this.getPrecioUnitario());
+            
+            int ejecutar= parametro.executeUpdate();
+            retorno = ejecutar;
+        }catch(SQLException ex){
+           System.out.println("Error Detalle Venta: " + ex.getMessage()); 
+        }
+        cn.cerrar_con();
+        return retorno;
+    }
+    
+     
+    public DefaultTableModel leerVenta(){
+        DefaultTableModel tabla = new DefaultTableModel();
+        try{
+         cn = new Conexion();
+         cn.abrir_con();
+          String query;
+
+              query = "select v.idventa as id, v.nofactura,c.nit, v.idempleado, v.fechafactura,c.idcliente from ventas as v inner join clientes as c on v.idcliente= c.idcliente;";
+           ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
+
+            String encabezado[] = {"id","nofactura","nit","idempleado","fechafactura","idcliente"};
+            tabla.setColumnIdentifiers(encabezado);
+
+            String datos[]=new String[6];
+
+         while(consulta.next()){
+            datos[0] = consulta.getString("id");
+            datos[1] = consulta.getString("nofactura");
+            datos[2] = consulta.getString("nit");
+            datos[3] = consulta.getString("idempleado");
+            datos[4] = consulta.getString("fechafactura");
+            datos[5] = consulta.getString("idcliente");
+            tabla.addRow(datos);
+            }
+         cn.cerrar_con();
+
+
+        }catch(SQLException ex){
+            cn.cerrar_con();
+            System.out.println("Error: " + ex.getMessage() );
+
+        }
+        return tabla;
+    }
+    
+    public DefaultTableModel leerDetalleV(String id){
+        DefaultTableModel tabla = new DefaultTableModel();
+        try{
+         cn = new Conexion();
+         cn.abrir_con();
+          String query;
+
+            query = "SELECT d.idventas_detalle as id, d.idventa, p.producto, d.precio_unitario, p.idproductos  FROM ventas_detalle as d inner join productos as p on d.idproducto= p.idproductos where d.idventa="+id+";";
+            ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
+            String encabezado[] = {"id","idventa","producto","precio_unitario","idproductos"};
+            tabla.setColumnIdentifiers(encabezado);
+            String datos[]=new String[5];
+         while(consulta.next()){
+            datos[0] = consulta.getString("id");
+            datos[1] = consulta.getString("idventa");
+            datos[2] = consulta.getString("producto");
+            datos[3] = consulta.getString("precio_unitario");
+            datos[4] = consulta.getString("idproductos");
+            tabla.addRow(datos);
+            }
+         cn.cerrar_con();
+        }catch(SQLException ex){
+            cn.cerrar_con();
+            System.out.println("Error: " + ex.getMessage() );
+        }
+        return tabla;
+    }
+    
+    public int EliminarVenDet(String id){
+        int retorno=0;
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            PreparedStatement parametro;
+            String query;
+            query = "DELETE FROM ventas_detalle WHERE idventa=?;";
+            
+            parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
+            parametro.setString(1, id);
+            
+            int ejecutar= parametro.executeUpdate();
+            retorno = ejecutar;
+        }catch(SQLException ex){
+            System.out.println("Error: " + ex.getMessage() );
+        }
+        cn.cerrar_con();
+        
+        return retorno;
+    }
+    
+    public int EliminarVen(String id){
+        int retorno=0;
+        cn = new Conexion();
+        cn.abrir_con();
+        try{
+            PreparedStatement parametro;
+            String query;
+            query = "DELETE FROM ventas WHERE idventa=?;";
+            parametro  = (PreparedStatement) cn.conexionBD.prepareStatement(query);
+            parametro.setString(1, id);
+            int ejecutar= parametro.executeUpdate();
+            retorno = ejecutar;
+
+        }catch(SQLException ex){
+            System.out.println("Error: " + ex.getMessage() );
+        }
+        cn.cerrar_con();
+        return retorno;
+    }
     
     
 }

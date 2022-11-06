@@ -11,6 +11,7 @@
 <%@page import="modelo.Proveedor" %>
 <%@page import="controlador.sr_proveedores1" %>
 <%@page import="java.util.HashMap" %>
+<%@page session="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +23,23 @@
     </head>
     
     <body>
+        
+        <% 
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String nivel;
+            
+            if(sesion.getAttribute("user")!=null && sesion.getAttribute("user")!=null ){
+                usuario = sesion.getAttribute("user").toString();
+                nivel = sesion.getAttribute("nivel").toString();
+                //out.print( "<a href='index.jsp?cerrar=true'>"+ usuario +"<h5>Cerrar Sesion</h5></a>  " );
+                
+            }else{
+                out.print(" <script>location.replace('index.jsp'); </script>   ");
+            }
+            
+        %>
+        
         <div class="container mt-3">
         <h1>Proveedores</h1>
         

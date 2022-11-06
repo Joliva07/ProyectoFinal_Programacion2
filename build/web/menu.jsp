@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -97,12 +98,34 @@ h1 {
 }
 
 </style>
+<script type="text/javascript">
+            history.forward();
+</script>
 </head>
 <body>
+    
+    
     
 <div id="sidebar" class="sidebar">
 <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
 <ul class="menu">
+    <% 
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String nivel;
+            
+            if(sesion.getAttribute("user")!=null && sesion.getAttribute("user")!=null ){
+                usuario = sesion.getAttribute("user").toString();
+                nivel = sesion.getAttribute("nivel").toString();
+                out.print( "<li><a href='index.jsp?cerrar=true'>User: "+ usuario +"<br> <label>Cerrar Sesion</label></a></li><br>  " );
+                
+            }else{
+                out.print(" <script>location.replace('index.jsp'); </script>   ");
+            }
+            
+        %>
+    
+    
 <li><a href="puesto.jsp" target="prueba" onclick="ocultar()" >Puestos</a></li>
 <li><a href="empleado.jsp" target="prueba" onclick="ocultar()">Empleados</a></li>
 <li><a href="cliente.jsp" target="prueba" onclick="ocultar()">Clientes</a></li>
@@ -110,15 +133,15 @@ h1 {
 <li><a href="marca.jsp" target="prueba" onclick="ocultar()">Marcas</a></li>
 <li><a href="producto.jsp" target="prueba" onclick="ocultar()">Productos</a></li>
 <li><a href="ventas.jsp" target="prueba" onclick="ocultar()">Ventas</a></li>
-<li><a href="#">Compras</a></li>
-<li><a href="index.jsp">Salir</a></li>
+<li><a href="compras.jsp" target="prueba" onclick="ocultar()">Compras</a></li>
+
 </ul>
 </div>
     
 <div id="contenido">
 
 <a id="abrir" class="abrir-cerrar" onclick="mostrar()" style="cursor: pointer"  >☰</a>
-<p><img src="https://images.vexels.com/media/users/3/259041/isolated/preview/379b5ec6200e87b0ead9c22b731c2527-zapatos-planos-de-bolos.png" heigth=10% width=10% /></p>
+<p><img src="https://images.vexels.com/media/users/3/259041/isolated/preview/379b5ec6200e87b0ead9c22b731c2527-zapatos-planos-de-bolos.png" heigth=6.5% width=6.5% /></p>
 
 
 </div>

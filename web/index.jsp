@@ -4,12 +4,13 @@
     Author     : Josue
 --%>
 
+<%@page import="modelo.operaciones"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
-    <style>
+    <head>
+        <style>
         body {
     font-family: 'Overpass', sans-serif;
     font-weight: normal;
@@ -143,14 +144,11 @@
     }
         
     </style>
-    <head>
-        <style type="css/text"></style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Proyecto Final</title>
-        
     </head>
     <body>
-    <center>
+        <center>
         <img src="https://images.vexels.com/media/users/3/259041/isolated/preview/379b5ec6200e87b0ead9c22b731c2527-zapatos-planos-de-bolos.png" heigth=15% width=15%>
         <div id="contenedor">
             <div id="central">
@@ -158,24 +156,52 @@
                     <div class="titulo">
                         Bienvenido
                     </div>
-                        <form action="menu.jsp" id="loginform">
-                        <input type="text" name="txt_usuario" id="txt_usuario" placeholder="Usuario" required>
-                        
-                        <input type="password" placeholder="Contraseña" id="txt_contraseña" name="txt_contraseña" required>
-                        
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
-                    </form>
-                    <div class="pie-form">
-                        <a href="#">¿Perdiste tu contraseña?</a>
-                        <a href="#">¿No tienes Cuenta? Registrate</a>
-                    </div>
+        <form action="index.jsp" method="post">
+            <b> <label>Usuario</label> </b><input type="text" name="txtUsuario"><br>
+            <b><label>Contraseña</label></b> <input type="password" name="txtContra"><br>
+            
+            <input type="submit" name="btnIngresar" value="Ingresar"><br>
+        </form>
+        <%--<div class="pie-form">--%>
+            <%--%><a href="#">¿Perdiste tu contraseña?</a>
+                        <a href="#">¿No tienes Cuenta? Registrate</a>--%>
+                   <%-- </div>--%>
                 </div>
-                <div class="inferior">
-                    <a href="#">Volver</a>
-                </div>
+              <%--  <div class="inferior">--%>
+                    <%--<a href="#">Volver</a>--%>
+              <%--  </div>--%>
             </div>
         </div>
             
         </center>
+        <%
+          operaciones op = new operaciones();
+          if(request.getParameter("btnIngresar")!=null){
+              String nombre=request.getParameter("txtUsuario");
+              String contra=request.getParameter("txtContra");
+              
+              switch(op.loguear( nombre,contra)){
+               case 1:
+                   HttpSession sesion = request.getSession();
+                   sesion.setAttribute("user", nombre);
+                   sesion.setAttribute("nivel", "1");
+                   response.sendRedirect("menu.jsp");
+                   break;
+               default:
+                   out.write("usuario no existe, o contraseña invalida");
+                   break;
+           }
+              
+          }
+          
+          if(request.getParameter("cerrar")!=null){
+              session.invalidate();
+          }
+          
+          
+        %>
+        
+        
+        
     </body>
 </html>

@@ -10,7 +10,7 @@
 <%@page import="modelo.Puesto" %>
 <%@page import="modelo.Cliente" %>
 <%@page import="java.util.HashMap" %>
-
+<%@page session="true" %>
 
 
 <!DOCTYPE html>
@@ -22,6 +22,23 @@
     </head>
     
     <body>
+        
+        <% 
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String nivel;
+            
+            if(sesion.getAttribute("user")!=null && sesion.getAttribute("user")!=null ){
+                usuario = sesion.getAttribute("user").toString();
+                nivel = sesion.getAttribute("nivel").toString();
+               // out.print( "<a href='index.jsp?cerrar=true'>"+ usuario +"<h5>Cerrar Sesion</h5></a>  " );
+                
+            }else{
+                out.print(" <script>location.replace('index.jsp'); </script>   ");
+            }
+            
+        %>
+        
         <div class="container mt-3">
         <h1>Clientes</h1>
         
@@ -133,7 +150,12 @@
                             out.println("<td>"+ tabla.getValueAt (t,1) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,2) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,3) + "</td>");
-                            out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
+                            if(tabla.getValueAt (t,4).equals("0")){
+                                out.println("<td>Femenino</td>");
+                            }else{
+                                out.println("<td>Masculino</td>");
+                            }
+                            //out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,5) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,7) + "</td>");

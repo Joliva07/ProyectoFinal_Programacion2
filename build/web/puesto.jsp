@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.HashMap" %>
 <%@page import="modelo.Puesto" %>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +17,23 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
+        
+        <% 
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String nivel;
+            
+            if(sesion.getAttribute("user")!=null && sesion.getAttribute("user")!=null ){
+                usuario = sesion.getAttribute("user").toString();
+                nivel = sesion.getAttribute("nivel").toString();
+                //out.print( "<a href='index.jsp?cerrar=true'>"+ usuario +"<h5>Cerrar Sesion</h5></a>  " );
+                
+            }else{
+                out.print(" <script>location.replace('index.jsp'); </script>   ");
+            }
+            
+        %>
+        
         <h1>Puestos</h1>
         <div class="container mt-3">
          
