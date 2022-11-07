@@ -184,7 +184,7 @@
                             <label>Ventas realizadas</label>
                             <div>
                                 
-                                <table class="table table-hover">
+                                <table id="ven" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
@@ -201,11 +201,11 @@
                                             tabla = v.leerVenta();
                                             for(int t = 0;t<tabla.getRowCount();t++ ){
                                                 out.println("<tr data-id="+ tabla.getValueAt(t, 0)+" data-id_c=" + tabla.getValueAt(t, 5)+">");
-                                                out.println("<td>"+ tabla.getValueAt (t,0) + "</td>");
-                                                out.println("<td>"+ tabla.getValueAt (t,1) + "</td>");
-                                                out.println("<td>"+ tabla.getValueAt (t,2) + "</td>");
-                                                out.println("<td>"+ tabla.getValueAt (t,3) + "</td>");
-                                                out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
+                                                out.println("<td data-toggle='modal' data-target='#myModal'>"+ tabla.getValueAt (t,0) + "</td>");
+                                                out.println("<td data-toggle='modal' data-target='#myModal'>"+ tabla.getValueAt (t,1) + "</td>");
+                                                out.println("<td data-toggle='modal' data-target='#myModal'>"+ tabla.getValueAt (t,2) + "</td>");
+                                                out.println("<td data-toggle='modal' data-target='#myModal'>"+ tabla.getValueAt (t,3) + "</td>");
+                                                out.println("<td data-toggle='modal' data-target='#myModal'>"+ tabla.getValueAt (t,4) + "</td>");
                                                 out.println("<td>");
                                                 //out.println("<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal' value='"+tabla.getValueAt (t,0)+"'>Detalles</button>");
                                                 //out.println("<a href='#ModalDetalle?id="+tabla.getValueAt (t,0)+"' class='btn btn-success'>Detalle</a>");
@@ -226,68 +226,60 @@
                     
                             
                             <!-- Modal -->
-                            <div class="modal fade" id="Modal_Detalle" >
-                              <div class="modal-dialog">
-                                  
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div>
-                                    <label>Id Venta</label>
-                                    <input type="text" name="txt_idVenta" id="txt_idVenta" class="form-control" />
-                                    </div>
-                                    <div class="modal-body">
-                                            <label>Ventas realizadas</label>
+                                <div class="modal fade" id="myModal" role="dialog">
+                                  <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        
+                                      </div>
+                                      <div class="modal-body">
+                                          <h4 class="modal-title">Detalles de la Venta</h4>
+                                           <input type="text" name="txt_idVenta" id="txt_idVenta" value="" class="form-control" readonly>
+                                 <%--   <table id="det" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Producto</th>
+                                            <th>cantidad</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                    </thead>
+                                   <tbody id="tbl_ventaD">    
+                                        <% Ventas vd = new Ventas();
+                                            DefaultTableModel tabla2 = new DefaultTableModel();
+                                            tabla2 = vd.leerDetalleV();
+                                            for(int t = 0;t<tabla.getRowCount();t++ ){
+                                                out.println("<tr data-id="+ tabla2.getValueAt(t, 0)+" data-id_c=" + tabla2.getValueAt(t, 5)+">");
+                                                out.println("<td >"+ tabla2.getValueAt (t,1) + "</td>");
+                                                out.println("<td >"+ tabla2.getValueAt (t,2) + "</td>");
+                                                out.println("<td >"+ tabla2.getValueAt (t,3) + "</td>");
+                                                out.println("<td >"+ tabla2.getValueAt (t,4) + "</td>");
+                                                out.println("</tr>");
+                                            }
                                             
-                                                <div>
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Id venta</th>
-                                                                <th>Producto</th>
-                                                                <th>Cantidad</th>
-                                                                <th>Precio unitario</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>    
-                                                            <% /*Ventas v = new Ventas();
-                                                                DefaultTableModel tabla = new DefaultTableModel();
-                                                                tabla = v.leerVenta();
-                                                                for(int t = 0;t<tabla.getRowCount();t++ ){
-                                                                    out.println("<tr data-id="+ tabla.getValueAt(t, 0)+" data-id_c=" + tabla.getValueAt(t, 5)+">");
-                                                                    out.println("<td>"+ tabla.getValueAt (t,0) + "</td>");
-                                                                    out.println("<td>"+ tabla.getValueAt (t,1) + "</td>");
-                                                                    out.println("<td>"+ tabla.getValueAt (t,2) + "</td>");
-                                                                    out.println("<td>"+ tabla.getValueAt (t,3) + "</td>");
-                                                                    out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
-                                                                    out.println("<td>");
-                                                                    out.println("<a href='#' class='btn btn-warning'>Detalles</a>");
-                                                                    out.println("<a href='sr_ventas?accion=Eliminar&id="+tabla.getValueAt (t,0)+"' class='btn btn-danger'>Eliminar</a>");
-                                                                    out.println("</td>");
-                                                                    out.println("</tr>");
-                                                                }*/
-                                                                /*Ventas v = new Ventas();
-                                                                DefaultTableModel tabla = new DefaultTableModel();
-                                                                tabla = v.leerVenta(request.getParameter("id"));*/
-                                                            %>
-                                                       </table>
-                                                </div>
+                                        %>
+                                   </table>--%>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
                                     </div>
-
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   </div>
-                                </div>
-
-                              </div>
-                            </div>
-                                                       <script type="text/javascript">
+                                  </div>
+      
+      
+      <script type="text/javascript">
                                                            
                                                            $('#tbl_venta').on('click','tr td',function(evt){
-                                                               var target,id;
+                                                               var target,id,idv;
                                                               target = $(event.target);
                                                                id = target.parent().data('id');
+                                                               
                                                               $('#txt_idVenta').val(id);
-                                                               $("#ModalDetalle").modal('show');
+                                                               //$("#ModalDetalle").modal('show');
                                                            });
                                                            
                                                            /*$('#tbl_estudiantes').on('click','tr td',function(evt){

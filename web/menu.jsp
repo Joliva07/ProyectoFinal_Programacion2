@@ -134,6 +134,7 @@ h1 {
 <li><a href="producto.jsp" target="prueba" onclick="ocultar()">Productos</a></li>
 <li><a href="ventas.jsp" target="prueba" onclick="ocultar()">Ventas</a></li>
 <li><a href="compras.jsp" target="prueba" onclick="ocultar()">Compras</a></li>
+<li><a href="dinamico.jsp" target="prueba" onclick="ocultar()">Menu</a></li>
 
 </ul>
 </div>

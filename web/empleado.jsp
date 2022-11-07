@@ -205,7 +205,7 @@
                             }else{
                                 out.println("<td>Masculino</td>");
                             }
-                           // out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
+                            //out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,7) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,8) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,10) + "</td>");

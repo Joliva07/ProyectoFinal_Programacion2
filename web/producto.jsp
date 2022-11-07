@@ -182,8 +182,8 @@
                             out.println("<tr data-id="+ tabla.getValueAt(t, 0)+" data-id_p=" + tabla.getValueAt(t, 9)+">");
                             out.println("<td>"+ tabla.getValueAt (t,1) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,2) + "</td>");
-                            out.println("<td>"+ tabla.getValueAt (t,3) + "</td>");
-                            out.println("<td>"+ tabla.getValueAt (t,4) + "</td>");
+                            out.println("<td> "+ tabla.getValueAt (t,3) + "</td>");
+                            out.println("<td><img src='"+ tabla.getValueAt (t,4) + "'></td>");
                             out.println("<td>"+ tabla.getValueAt (t,5) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,6) + "</td>");
                             out.println("<td>"+ tabla.getValueAt (t,7) + "</td>");

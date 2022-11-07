@@ -335,24 +335,25 @@ public class Ventas {
         return tabla;
     }
     
-    public DefaultTableModel leerDetalleV(String id){
+    public DefaultTableModel leerDetalleV(){
         DefaultTableModel tabla = new DefaultTableModel();
         try{
          cn = new Conexion();
          cn.abrir_con();
           String query;
 
-            query = "SELECT d.idventas_detalle as id, d.idventa, p.producto, d.precio_unitario, p.idproductos  FROM ventas_detalle as d inner join productos as p on d.idproducto= p.idproductos where d.idventa="+id+";";
+            query = "SELECT d.idventas_detalle as id, d.idventa, p.producto,d.cantidad, d.precio_unitario, p.idproductos  FROM ventas_detalle as d inner join productos as p on d.idproducto= p.idproductos;";
             ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-            String encabezado[] = {"id","idventa","producto","precio_unitario","idproductos"};
+            String encabezado[] = {"id","idventa","producto","cantidad","precio_unitario","idproductos"};
             tabla.setColumnIdentifiers(encabezado);
             String datos[]=new String[5];
          while(consulta.next()){
             datos[0] = consulta.getString("id");
             datos[1] = consulta.getString("idventa");
             datos[2] = consulta.getString("producto");
-            datos[3] = consulta.getString("precio_unitario");
-            datos[4] = consulta.getString("idproductos");
+            datos[3] = consulta.getString("cantidad");
+            datos[4] = consulta.getString("precio_unitario");
+            datos[5] = consulta.getString("idproductos");
             tabla.addRow(datos);
             }
          cn.cerrar_con();
